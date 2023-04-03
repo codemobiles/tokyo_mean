@@ -15,6 +15,7 @@ export class AppComponent {
   tmp4: number = 20;
   tmp5: string = 'Yes';
   tmp6: boolean = false;
+  counter1 = 0;
 
   method1() {
     alert('Method1');

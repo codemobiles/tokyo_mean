@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-c1',
@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class C1Component {
   @Input() subtitle: string = '';
+  @Output() reset = new EventEmitter();
 }

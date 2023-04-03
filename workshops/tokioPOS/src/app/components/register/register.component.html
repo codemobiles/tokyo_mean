@@ -1,5 +1,5 @@
 <div>
-  <form>
+  <form #loginForm="ngForm" (submit)="handleSubmit(loginForm.value)">
     <input name="username" ngModel type="text" placeholder="Username" /><br />
     <input name="password" ngModel type="text" placeholder="Password" /><br />
     <button type="submit">Submit</button>

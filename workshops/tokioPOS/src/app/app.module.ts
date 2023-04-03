@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,12 +22,29 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MenuComponent, LoginComponent, RegisterComponent, StockComponent, StockEditComponent, StockCreateComponent, ReportComponent, ShopComponent, PaymentComponent, TransactionComponent, TransactionDetailComponent, ConfirmDialogComponent, SuccessDialogComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    MenuComponent,
+    LoginComponent,
+    RegisterComponent,
+    StockComponent,
+    StockEditComponent,
+    StockCreateComponent,
+    ReportComponent,
+    ShopComponent,
+    PaymentComponent,
+    TransactionComponent,
+    TransactionDetailComponent,
+    ConfirmDialogComponent,
+    SuccessDialogComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

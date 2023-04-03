@@ -9,7 +9,6 @@ export class RegisterComponent {
   username = '';
 
   handleUsernameChanged(value: string) {
-    debugger;
     console.log(value);
   }
 }

@@ -1,7 +1,7 @@
 <div>
   <form>
     <input
-      (input)="handleUsernameChanged($event.target.value!)"
+      [(ngModel)]="username"
       type="text"
       placeholder="Username"
     /><br />

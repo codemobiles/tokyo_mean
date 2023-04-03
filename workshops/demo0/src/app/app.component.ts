@@ -28,4 +28,8 @@ export class AppComponent {
   method2(msg: string) {
     alert(msg);
   }
+
+  handleReset() {
+    this.counter1 = 0;
+  }
 }

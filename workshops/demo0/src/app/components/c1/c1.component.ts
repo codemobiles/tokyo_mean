@@ -8,4 +8,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class C1Component {
   @Input() subtitle: string = '';
   @Output() reset = new EventEmitter();
+
+  handleReset() {
+    this.reset.emit();
+  }
 }

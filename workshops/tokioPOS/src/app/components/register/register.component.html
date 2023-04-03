@@ -1,10 +1,13 @@
 <div>
   <form>
     <input
+      name="username"
       [(ngModel)]="username"
       type="text"
       placeholder="Username"
     /><br />
+    <span>spy: {{ username }}</span
+    ><br />
     <button type="submit">Submit</button>
   </form>
 </div>

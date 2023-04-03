@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Lek lek';
+  // Implication Declaration
+  tmp1 = 10;
+  tmp2 = 'Hey';
+  tmp3 = true;
+  // Explication Declaration
+  tmp4: number = 20;
+  tmp5: string = 'Yes';
+  tmp6: boolean = false;
 }

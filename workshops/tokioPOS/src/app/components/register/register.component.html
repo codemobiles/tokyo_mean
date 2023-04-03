@@ -6,7 +6,14 @@
       type="text"
       placeholder="Username"
     /><br />
-    <span>spy: {{ username }}</span
+
+    <input
+      name="password"
+      [(ngModel)]="password"
+      type="text"
+      placeholder="Password"
+    /><br />
+    
     ><br />
     <button type="button" (click)="username = ''">Reset</button>
     <button type="submit">Submit</button>

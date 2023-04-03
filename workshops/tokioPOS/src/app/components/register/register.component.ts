@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
   username = '';
+  password = '';
 
-  handleUsernameChanged(value: string) {
-    console.log(value);
+  handleSubmit(value: any) {
+    alert(JSON.stringify(value));
   }
 }

@@ -6,9 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  username = '';
-  password = '';
-
   handleSubmit(value: any) {
     alert(JSON.stringify(value));
   }

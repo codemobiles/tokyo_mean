@@ -1,21 +1,7 @@
 <div>
   <form>
-    <input
-      name="username"
-      [(ngModel)]="username"
-      type="text"
-      placeholder="Username"
-    /><br />
-
-    <input
-      name="password"
-      [(ngModel)]="password"
-      type="text"
-      placeholder="Password"
-    /><br />
-    
-    ><br />
-    <button type="button" (click)="username = ''">Reset</button>
+    <input name="username" ngModel type="text" placeholder="Username" /><br />
+    <input name="password" ngModel type="text" placeholder="Password" /><br />
     <button type="submit">Submit</button>
   </form>
 </div>

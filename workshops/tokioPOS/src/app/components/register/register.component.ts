@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  handleSubmit(value: any) {
+  hide = true;
+  onSubmit(value: any) {
     alert(JSON.stringify(value));
   }
+
+  onClickCancel() {}
 }

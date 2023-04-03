@@ -17,6 +17,10 @@ export class AppComponent {
   tmp6: boolean = false;
   counter1 = 0;
 
+  addCounter1() {
+    this.counter1++;
+  }
+
   method1() {
     alert('Method1');
   }

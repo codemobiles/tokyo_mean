@@ -15,4 +15,12 @@ export class AppComponent {
   tmp4: number = 20;
   tmp5: string = 'Yes';
   tmp6: boolean = false;
+
+  method1() {
+    alert('Method1');
+  }
+
+  method2(msg: string) {
+    alert(msg);
+  }
 }

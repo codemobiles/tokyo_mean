@@ -1,6 +1,10 @@
 <div>
   <form>
-    <input type="text" placeholder="Username" /><br />
+    <input
+      (input)="handleUsernameChanged($event.target.value!)"
+      type="text"
+      placeholder="Username"
+    /><br />
     <button type="submit">Submit</button>
   </form>
 </div>

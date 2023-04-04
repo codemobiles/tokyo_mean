@@ -1,18 +1,24 @@
-import { Entity, ObjectIdColumn, ObjectID, Column } from "typeorm"
+import { Entity, ObjectIdColumn, ObjectID, Column } from 'typeorm';
 
 @Entity()
-export class User {
+export class Users {
+  @ObjectIdColumn()
+  _id: ObjectID;
 
-    @ObjectIdColumn()
-    id: ObjectID
+  @Column()
+  username: string;
 
-    @Column()
-    firstName: string
+  @Column()
+  password: string;
 
-    @Column()
-    lastName: string
+  // default = "normal"
+  @Column()
+  level?: string;
 
-    @Column()
-    age: number
+  // default = "Date.now"
+  @Column()
+  created?: Date;
 
+  @Column()
+  __v?: number = 0;
 }

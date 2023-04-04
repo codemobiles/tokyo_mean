@@ -8,4 +8,9 @@ export class UserController {
   login(request, response, next) {
     return this.userRepository.find();
   }
+
+  register(request, response, next) {
+    console.log(JSON.stringify(request.body));
+    return this.userRepository.create(request.body);
+  }
 }

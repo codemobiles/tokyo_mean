@@ -8,4 +8,10 @@ export const Routes = [
     controller: UserController,
     action: 'login',
   },
+  {
+    method: 'post',
+    route: '/register',
+    controller: UserController,
+    action: 'register',
+  },
 ];

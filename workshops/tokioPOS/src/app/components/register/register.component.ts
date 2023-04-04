@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
 import { RestService } from 'src/app/services/rest.service';
 
 @Component({
@@ -10,9 +11,9 @@ export class RegisterComponent {
   constructor(public rest: RestService) {}
 
   hide = true;
-  onSubmit(value: any) {
-    this.rest.register(value);
-    alert(JSON.stringify(value));
+  async onSubmit(value: any) {
+    let result = await lastValueFrom(this.rest.register(value));
+    alert(JSON.stringify(result));
   }
 
   onClickCancel() {}

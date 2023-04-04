@@ -1,11 +1,12 @@
+import { ProductController } from './controller/ProductController';
 import { UserController } from './controller/UserController';
 
 export const Routes = [
   {
     method: 'get',
     route: '/product/query',
-    controller: UserController,
-    action: 'all',
+    controller: ProductController,
+    action: 'query',
   },
   {
     method: 'get',

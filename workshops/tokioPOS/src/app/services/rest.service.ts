@@ -13,7 +13,7 @@ export class RestService {
   }
 
   register(value: any) {
-    return this.http.post<any>('', value, {
+    return this.http.post<any>('http://localhost:3000/register', value, {
       headers: this.headers,
     });
   }

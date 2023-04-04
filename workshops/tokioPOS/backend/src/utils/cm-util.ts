@@ -1,8 +1,8 @@
-import * as fs from "fs-extra";
-import { AppDataSource } from "../data-source";
-import { Counters } from "../entity/Counters";
+import * as fs from 'fs-extra';
+import { AppDataSource } from '../data-source';
+import { Counters } from '../entity/Counters';
 
-const uploadPath = process.env.ROOT_PATH + "/uploaded/images/";
+const uploadPath = process.env.ROOT_PATH + '/uploaded/images/';
 
 export function savedValue(value: any, _default: any): any {
   return value ? value : _default;
@@ -10,7 +10,12 @@ export function savedValue(value: any, _default: any): any {
 
 export async function deleteFile(name: string) {
   if (name) {
-    const toDeletedFiles = fs.readdirSync(uploadPath).filter((allFilesPaths: string) => allFilesPaths.match(new RegExp(`(${name})+(.*)$`, "i")) !== null);
+    const toDeletedFiles = fs
+      .readdirSync(uploadPath)
+      .filter(
+        (allFilesPaths: string) =>
+          allFilesPaths.match(new RegExp(`(${name})+(.*)$`, 'i')) !== null
+      );
 
     toDeletedFiles.forEach(async (file) => {
       // console.log(file);
@@ -21,7 +26,7 @@ export async function deleteFile(name: string) {
 
 export function getFileName(files: any, id: string): string | null {
   if (files.image != null) {
-    var fileExtention = files.image.originalFilename.split(".")[1];
+    var fileExtention = files.image.originalFilename.split('.')[1];
     const name = `${id}.${fileExtention}`;
     return name;
   }
@@ -43,6 +48,10 @@ export async function uploadImage(files: any, name: string) {
 
 export async function generateSeq(id: string): Promise<number> {
   const counterRepo = AppDataSource.getMongoRepository(Counters);
-  var result = await counterRepo.findOneAndUpdate({ id }, { $inc: { seq: 1 } }, { upsert: true });
+  var result = await counterRepo.findOneAndUpdate(
+    { id },
+    { $inc: { seq: 1 } },
+    { upsert: true }
+  );
   return result.value?.seq ? result.value?.seq + 1 : 1;
 }

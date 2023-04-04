@@ -11,6 +11,7 @@ export class RegisterComponent {
 
   hide = true;
   onSubmit(value: any) {
+    this.rest.register(value);
     alert(JSON.stringify(value));
   }
 

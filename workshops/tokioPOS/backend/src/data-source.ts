@@ -1,13 +1,13 @@
-import "reflect-metadata"
-import { DataSource } from "typeorm"
-import { User } from "./entity/User"
+import 'reflect-metadata';
+import { DataSource } from 'typeorm';
+import { Users } from './entity/Users';
 
 export const AppDataSource = new DataSource({
-    type: "mongodb",
-    database: "test",
-    synchronize: true,
-    logging: false,
-    entities: [User],
-    migrations: [],
-    subscribers: [],
-})
+  type: 'mongodb',
+  database: 'tokioPOS',
+  synchronize: true,
+  logging: false,
+  entities: [Users],
+  migrations: [],
+  subscribers: [],
+});

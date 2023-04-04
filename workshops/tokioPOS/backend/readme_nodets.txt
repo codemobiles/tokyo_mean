@@ -8,7 +8,7 @@ npx typeorm init --name MyProject --database mongodb --express
 
 # to run and populate collection
 npm i -g yarn
-yarn add express bcryptjs cors formidable fs-extra jsonwebtoken onesignal-node typescript 
+yarn add express bcryptjs cors formidable fs-extra jsonwebtoken onesignal-node typescript
 yarn add  @types/bcryptjs @types/jsonwebtoken @types/formidable @types/fs-extra @types/cors -D
 
 
@@ -23,7 +23,7 @@ sudo npm i -g pm2
 pm2 init simple
 pm2 start ecosystem.config.js
 
-# ecosystem.config.js 
+# ecosystem.config.js
 module.exports = {
   apps: [
     {
@@ -36,5 +36,5 @@ module.exports = {
 
 
 "scripts": {
-      "build": "tsc && cp *.key .env ecosystem.config.js ./build",      
+      "build": "tsc && cp *.key .env ecosystem.config.js ./build",
 }

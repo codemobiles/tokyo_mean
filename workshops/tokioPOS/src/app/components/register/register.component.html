@@ -6,14 +6,14 @@
   <form #loginForm="ngForm" (submit)="onSubmit(loginForm.value)">
     <mat-card-content style="display: flex; flex-direction: column">
       <!-- Username -->
-      <mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
         <input ngModel name="username" matInput placeholder="Username" />
         <mat-icon matSuffix>account_box</mat-icon>
       </mat-form-field>
 
       <!-- Password -->
-      <mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
         <input
           ngModel

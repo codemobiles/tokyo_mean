@@ -3,7 +3,7 @@ import { UserController } from './controller/UserController';
 
 export const Routes = [
   {
-    method: 'get',
+    method: 'post',
     route: '/login',
     controller: UserController,
     action: 'login',

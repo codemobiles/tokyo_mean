@@ -4,4 +4,8 @@ import { Users } from '../entity/Users';
 
 export class UserController {
   private userRepository = AppDataSource.getMongoRepository(Users);
+
+  login(request, response, next) {
+    return this.userRepository.find();
+  }
 }

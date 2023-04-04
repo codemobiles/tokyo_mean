@@ -7,7 +7,7 @@ import * as bcrypt from 'bcryptjs';
 export class UserController {
   private userRepository = AppDataSource.getMongoRepository(Users);
 
-  login(request, response, next) {
+  async login(req, res, next) {
     try {
       const { username, password } = req.body;
 
@@ -23,7 +23,7 @@ export class UserController {
             level: doc.level,
             username: doc.username,
           };
-          let token = jwt.sign(payload);
+          let token = '1234';
 
           res.json({ result: 'ok', token, message: 'success' });
         } else {

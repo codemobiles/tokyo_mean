@@ -11,7 +11,6 @@ export class UserController {
 
   async one(request: Request, response: Response, next: NextFunction) {
     const id = parseInt(request.params.id);
-
     const user = await this.userRepository.findOne({
       where: { id },
     });

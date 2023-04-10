@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+  provideHttpClient,
+  withInterceptors,
+} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +26,7 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { TransactionDetailComponent } from './components/transaction-detail/transaction-detail.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
+import { authInterceptor } from './services/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -48,7 +54,7 @@ import { SuccessDialogComponent } from './components/success-dialog/success-dial
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [provideHttpClient(withInterceptors([authInterceptor]))],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

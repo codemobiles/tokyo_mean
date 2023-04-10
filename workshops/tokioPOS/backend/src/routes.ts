@@ -19,9 +19,39 @@ const authRoutes = [
 const productRoutes = [
   {
     method: 'get',
-    route: '/products',
+    route: '/product',
     controller: ProductController,
-    action: 'query',
+    action: 'all',
+  },
+  {
+    method: 'get',
+    route: '/product/id/:product_id',
+    controller: ProductController,
+    action: 'one',
+  },
+  {
+    method: 'post',
+    route: '/product',
+    controller: ProductController,
+    action: 'add',
+  },
+  {
+    method: 'put',
+    route: '/product',
+    controller: ProductController,
+    action: 'update',
+  },
+  {
+    method: 'delete',
+    route: '/product/id/:product_id',
+    controller: ProductController,
+    action: 'remove',
+  },
+  {
+    method: 'get',
+    route: '/product/name/:name',
+    controller: ProductController,
+    action: 'allLike',
   },
 ];
 

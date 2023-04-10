@@ -5,6 +5,14 @@ import { AppDataSource } from './data-source';
 import { Routes } from './routes';
 import * as cors from 'cors';
 
+const interceptor1 = (req, res, next) => {
+  if (req.query.token1 == '12341234') {
+    next();
+  } else {
+    res.end('No token 1');
+  }
+};
+
 AppDataSource.initialize()
   .then(async () => {
     // create express app
@@ -16,20 +24,7 @@ AppDataSource.initialize()
     Routes.forEach((route) => {
       (app as any)[route.method](
         '/api/v2' + route.route,
-        (req, res, next) => {
-          if (req.query.token1 == '12341234') {
-            next();
-          } else {
-            res.end('No token 1');
-          }
-        },
-        (req, res, next) => {
-          if (req.query.token2 == '5555') {
-            next();
-          } else {
-            res.end('No token 2');
-          }
-        },
+        interceptor1,
         (req: Request, res: Response, next: Function) => {
           const result = new (route.controller as any)()[route.action](
             req,

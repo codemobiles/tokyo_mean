@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { RestService } from 'src/app/services/rest.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
       username: '',
       password: '',
     };
+  }
+
+  public get env(): any {
+    return environment;
   }
 
   ngAfterViewInit(): void {

@@ -20,11 +20,11 @@
 					"raw": "{\"username\": \"lek\", \"password\": \"1234\"}"
 				},
 				"url": {
-					"raw": "localhost:8081/api/v2/register",
+					"raw": "localhost:8082/api/v2/register",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"api",
 						"v2",
@@ -49,11 +49,11 @@
 					"raw": "{\"username\": \"admin\", \"password\": \"1234\"}"
 				},
 				"url": {
-					"raw": "localhost:8081/api/v2/login",
+					"raw": "localhost:8082/api/v2/login",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"api",
 						"v2",
@@ -78,11 +78,11 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8081/api/v2/product?token=1234",
+					"raw": "localhost:8082/api/v2/product?token=1234",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"api",
 						"v2",
@@ -109,11 +109,11 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8081/api/v2/product/id/17",
+					"raw": "localhost:8082/api/v2/product/id/17",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"api",
 						"v2",
@@ -136,11 +136,11 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8081/api/v2/product/name/relay",
+					"raw": "localhost:8082/api/v2/product/name/relay",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"api",
 						"v2",
@@ -163,11 +163,11 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8081/api/v2/transaction",
+					"raw": "localhost:8082/api/v2/transaction",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"api",
 						"v2",
@@ -188,11 +188,11 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8081/api/v2/transaction",
+					"raw": "localhost:8082/api/v2/transaction",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"api",
 						"v2",
@@ -213,11 +213,11 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8081/api/v2/transaction/id/119",
+					"raw": "localhost:8082/api/v2/transaction/id/119",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"api",
 						"v2",
@@ -244,12 +244,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v2/product/id/113",
+					"raw": "http://localhost:8082/api/v2/product/id/113",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"api",
 						"v2",
@@ -302,11 +302,11 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8081/api/v2/product",
+					"raw": "localhost:8082/api/v2/product",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"api",
 						"v2",
@@ -352,11 +352,11 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8081/api/v2/product",
+					"raw": "localhost:8082/api/v2/product",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"api",
 						"v2",

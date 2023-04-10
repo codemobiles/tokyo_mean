@@ -41,10 +41,10 @@ AppDataSource.initialize()
     // ...
 
     // start express server
-    app.listen(8081);
+    app.listen(8082);
 
     console.log(
-      'Express server has started on port 8081. Open http://localhost:8081/users to see results'
+      'Express server has started on port 8082. Open http://localhost:8082/users to see results'
     );
   })
   .catch((error) => console.log(error));

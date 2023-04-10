@@ -16,7 +16,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
   let token = localStorage.getItem(environment.token);
 
-  if (true) {
+  if (token) {
     // has token but not sure if valid
 
     const cloned = req.clone({

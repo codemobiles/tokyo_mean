@@ -14,4 +14,10 @@ export const Routes = [
     controller: UserController,
     action: 'register',
   },
+  {
+    method: 'get',
+    route: '/products',
+    controller: ProductController,
+    action: 'query',
+  },
 ];

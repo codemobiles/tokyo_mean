@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./stock.component.scss']
 })
 export class StockComponent {
+  constructor(public rest: RestService) {}
+
 
 }

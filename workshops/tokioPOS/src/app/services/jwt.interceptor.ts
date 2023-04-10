@@ -4,20 +4,25 @@ import { Router } from '@angular/router';
 import { catchError, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
+function isAbsoluteUrl(url: string): boolean {
+  return /^https?:\/\//i.test(url);
+}
+
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   // intercept the request message
   const router = inject(Router);
   console.log('request', req.method, req.url);
   console.log('authInterceptor');
 
-  debugger;
   let token = localStorage.getItem(environment.token);
 
   if (true) {
     // has token but not sure if valid
 
     const cloned = req.clone({
-      url: `${environment.node_static_url}${req.url}`,
+      url: isAbsoluteUrl(req.url)
+        ? req.url
+        : `${environment.node_static_url}${req.url}`,
       setHeaders: { Authorization: `Bearer ${token}` },
     });
 

@@ -17,4 +17,10 @@ export class RestService {
       headers: this.headers,
     });
   }
+
+  login(value: any) {
+    return this.http.post<any>('http://localhost:3000/login', value, {
+      headers: this.headers,
+    });
+  }
 }

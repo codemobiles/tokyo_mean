@@ -8,13 +8,14 @@ import { StockCreateComponent } from './components/stock-create/stock-create.com
 import { StockEditComponent } from './components/stock-edit/stock-edit.component';
 import { StockComponent } from './components/stock/stock.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { AuthenGuard } from './services/authen.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   // { path: 'extra', component: ExtraComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [AuthenGuard] },
   { path: 'register', component: RegisterComponent },
-  { path: 'stock', component: StockComponent },
+  { path: 'stock', component: StockComponent, canActivate: [AuthenGuard] },
   {
     path: 'stock/create',
     component: StockCreateComponent,

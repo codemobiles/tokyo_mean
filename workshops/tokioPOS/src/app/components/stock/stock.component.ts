@@ -15,6 +15,6 @@ export class StockComponent implements AfterViewInit {
 
   async ngAfterViewInit(): Promise<void> {
     this.dataArray = await lastValueFrom(this.rest.getProducts());
-    alert(JSON.stringify(this.dataArray));
+    // alert(JSON.stringify(this.dataArray));
   }
 }

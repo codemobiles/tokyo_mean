@@ -16,12 +16,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   constructor(public rest: RestService, private router: Router) {}
 
-  ngOnInit(): void {
-    let user: User = {
-      username: '',
-      password: '',
-    };
-  }
+  ngOnInit(): void {}
 
   public get env(): any {
     return environment;

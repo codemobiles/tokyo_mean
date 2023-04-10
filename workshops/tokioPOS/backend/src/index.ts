@@ -17,10 +17,17 @@ AppDataSource.initialize()
       (app as any)[route.method](
         '/api/v2' + route.route,
         (req, res, next) => {
-          if (req.query.token == '12341234') {
+          if (req.query.token1 == '12341234') {
             next();
           } else {
-            res.end('No permission');
+            res.end('No token 1');
+          }
+        },
+        (req, res, next) => {
+          if (req.query.token2 == '5555') {
+            next();
+          } else {
+            res.end('No token 2');
           }
         },
         (req: Request, res: Response, next: Function) => {

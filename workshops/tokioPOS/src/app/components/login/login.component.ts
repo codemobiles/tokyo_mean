@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { RestService } from 'src/app/services/rest.service';
 
@@ -7,8 +7,14 @@ import { RestService } from 'src/app/services/rest.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit, AfterViewInit {
   constructor(private rest: RestService) {}
+
+  ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
+    this.onSubmit({ username: 'test1', password: '1234' });
+  }
 
   hide = true;
   async onSubmit(value: any) {

@@ -10,11 +10,14 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   console.log('request', req.method, req.url);
   console.log('authInterceptor');
 
+  debugger;
   let token = localStorage.getItem(environment.token);
 
-  if (token != null) {
+  if (true) {
     // has token but not sure if valid
+
     const cloned = req.clone({
+      url: `${environment.node_static_url}${req.url}`,
       setHeaders: { Authorization: `Bearer ${token}` },
     });
 

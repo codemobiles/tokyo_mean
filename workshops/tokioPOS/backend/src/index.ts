@@ -4,14 +4,9 @@ import { Request, Response } from 'express';
 import { AppDataSource } from './data-source';
 import { Routes } from './routes';
 import * as cors from 'cors';
+import { interceptor1 } from './utils/my.interceptor';
 
-const interceptor1 = (req, res, next) => {
-  if (req.query.token1 == '12341234') {
-    next();
-  } else {
-    res.end('No token 1');
-  }
-};
+
 
 AppDataSource.initialize()
   .then(async () => {

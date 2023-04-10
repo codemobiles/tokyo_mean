@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, AfterViewInit {
-  error = false;
+  error?: string | null;
   hide = true;
 
   constructor(public rest: RestService, private router: Router) {}
@@ -27,9 +27,16 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   async onSubmit(value: User) {
-    let result = await lastValueFrom(this.rest.login(value));
-    localStorage.setItem(environment.token, result.token);
-    alert(JSON.stringify(result));
+    let response = await this.rest.login(value).toPromise();
+
+    if (response.result == 'ok') {
+      this.error = null;
+      localStorage.setItem(environment.token, response.token);
+      this.router.navigate(['stock']);
+    } else {
+      this.error = response.message;
+      localStorage.removeItem(environment.token);
+    }
   }
 
   onClickRegister() {

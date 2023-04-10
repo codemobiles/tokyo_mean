@@ -1,21 +1,21 @@
 
-### Get Product 
+### Get Product
 GET http://localhost:8081/api/v2/product HTTP/1.1
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMmI4NGJlZWQxZGJlODUzYzVkYTlmMSIsImxldmVsIjoibm9ybWFsIiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY2MzQwNzMyMSwiZXhwIjoxNjY1OTk5MzIxLCJhdWQiOiJodHRwOi8vY29kZW1vYmlsZXMuY29tIiwiaXNzIjoiQ29kZU1vYmlsZXMgTHRkIiwic3ViIjoiY2hhaXlhc2l0LnRAZ21haWwuY29tIn0.AQwZigxL4Kad0_cWsAut7gdprHLm4DcxvYWDu4W04_R1ygGI8FzNLxbkhSmOgu7YxtlyKz4-wiOczSJLAtlEHd_6-FBovm_5Un2AztBrpP4P_mEGrDjwVmyMXw03fEIOK_Ech4imftubKwdQ8nqRLE3HZwB_k-rgVM9lofrbFQw
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMmI4NGJlZWQxZGJlODUzYzVkYTlmMSIsImxldmVsIjoibm9ybWFsIiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY4MTExMDYwNCwiZXhwIjoxNjgzNzAyNjA0LCJhdWQiOiJodHRwOi8vY29kZW1vYmlsZXMuY29tIiwiaXNzIjoiQ29kZU1vYmlsZXMgTHRkIiwic3ViIjoiY2hhaXlhc2l0LnRAZ21haWwuY29tIn0.w0su6toDeCPcrngwpsD5IrmSs2tDpD4oN_g_aaLndmOp80bEgfNcggYM1fnqJXyvzbmg9QF2oDmIKgVcoPcKtwGczqx-cnQ0-OAABU2_NcK8_fhv5Bdxzv5wa_Bpxtmc3rf8OO4yX1xU16sp2q9Q8m7JJzuZebu0JH3LsgpPJYghUWsFRnu9uoLGX1dvmHWwamuxPnoL1aZ6yv2lqVstDKzRQiCxcV7FOV6rbfBNs9e4ey3etulSDTBh8aMe_zoEff7_ZV1-_KcBbBuu7p1VGL40BOYH5Nll5P8CXsfkrKfVn9jkPgHmVEOwzEtNz0mJdN8eNFU-EKOhMmu7LGpgSg
 
 ### Get Product with keyword
 GET http://localhost:8081/api/v2/product/name/serial HTTP/1.1
 
 
-### Get Product by ID 
+### Get Product by ID
 GET http://localhost:8081/api/v2/product/id/80 HTTP/1.1
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMmI4NGJlZWQxZGJlODUzYzVkYTlmMSIsImxldmVsIjoibm9ybWFsIiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY2MzIwMzEwNywiZXhwIjoxNjY1Nzk1MTA3LCJhdWQiOiJodHRwOi8vY29kZW1vYmlsZXMuY29tIiwiaXNzIjoiQ29kZU1vYmlsZXMgTHRkIiwic3ViIjoiY2hhaXlhc2l0LnRAZ21haWwuY29tIn0.F1XsHvHrUPksWGr-apZkK_ZCo3h3AY0IZcxn60ww0cIfqaMikrMKfnm-58c-wJBHugIP3JHU0ast7qlpZFOWxlfaCvJOsojilFwv2yLhk6ZT670POxZ83PWxU98b_zejBwNvPEVHoq09B7XsiiHzxpedTQwb8fZyU9AIMx0jNuA
 
-### Delete Product by ID 
+### Delete Product by ID
 DELETE  http://localhost:8081/api/v2/product/id/78 HTTP/1.1
 
 
-### Create 
+### Create
 POST http://localhost:8081/api/v2/product HTTP/1.1
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWI2NTU1NjE4ZGUwMmE0ZGFiZjFlNCIsImxldmVsIjoibm9ybWFsIiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTYwNTI0OTIxMCwiZXhwIjoxNjA1MjUxMjEwLCJhdWQiOiJodHRwOi8vY29kZW1vYmlsZXMuY29tIiwiaXNzIjoiQ29kZU1vYmlsZXMgTHRkIiwic3ViIjoiY2hhaXlhc2l0LnRAZ21haWwuY29tIn0.IRPyIUH1megwR2vhlCZG-RGNGsybu_xUrvkALae9Z7uYnt1i7yVk_jJxKGnqqwDxTSuda_27NUnyoYjI_5YavUJ_Cd_7w6yw2kpuwdkPQ-i53DsbvvX9IEPAaJmtO4CDwxwQxHHk2bHyOxsYwqAIlpD3RqwWtFNPeW_oni3xr_U
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -23,7 +23,7 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="name";
 
-Angular 
+Angular
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="stock";
 
@@ -40,7 +40,7 @@ Content-Type: image/png
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 
-### Edit 
+### Edit
 PUT http://localhost:8081/api/v2/product HTTP/1.1
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMmI4NGJlZWQxZGJlODUzYzVkYTlmMSIsImxldmVsIjoibm9ybWFsIiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY2MzgwNzcxMSwiZXhwIjoxNjY2Mzk5NzExLCJhdWQiOiJodHRwOi8vY29kZW1vYmlsZXMuY29tIiwiaXNzIjoiQ29kZU1vYmlsZXMgTHRkIiwic3ViIjoiY2hhaXlhc2l0LnRAZ21haWwuY29tIn0.fhRYCN2qXGQcVuy-DSYMbkqN4RRxNjjSI1UVy2fXUn1uPpFp4NW8dkr79um1qFuj0rHoueFz-QzbLTGMU5FDQEDB7t0xYYjiQ35antKFxnXspaXk6Sed40C95DhfdR-ayRjjCJBH8czvgHQuQR_GQdIU6roUhBBweGJzridljUs
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -73,7 +73,7 @@ Content-Type: image/png
 ---------------------------------------------
 ### Heroku
 
-### Create 
+### Create
 POST https://cmgostock.herokuapp.com/api/v2/product HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDExNzI5NTgsImlkIjo0LCJsZXZlbCI6Im5vcm1hbCIsInVzZXJuYW1lIjoiY20yIn0.Gjh80yfcwzR8nTtiD4tM0zTDb9CgemuGGJoLB5v0DF8
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -81,7 +81,7 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="name";
 
-Angular2 
+Angular2
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="stock";
 

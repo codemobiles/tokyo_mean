@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   async onSubmit(value: User) {
     let result = await lastValueFrom(this.rest.login(value));
+    localStorage.setItem('token', result.token);
     alert(JSON.stringify(result));
   }
 

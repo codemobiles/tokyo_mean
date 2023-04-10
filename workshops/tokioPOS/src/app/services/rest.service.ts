@@ -10,7 +10,7 @@ import { User } from '../models/user.model';
 })
 export class RestService {
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-  private hostUrl = `http://localhost:8081/`; // don't use local in case of cross domain or ip address
+  private hostUrl = `http://localhost:8082/`; // don't use local in case of cross domain or ip address
   private apiUrl = `${this.hostUrl}api/v2`;
   private loginUrl = `${this.apiUrl}/login`;
   private registerUrl = `${this.apiUrl}/register`;

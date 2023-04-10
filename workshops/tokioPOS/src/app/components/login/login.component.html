@@ -5,7 +5,7 @@
     height="200"
   />
   <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
+    <mat-card-title>Login ({{ env.platform }})</mat-card-title>
   </mat-card-header>
   <form #loginForm="ngForm" (submit)="onSubmit(loginForm.value)">
     <mat-card-content style="display: flex; flex-direction: column">

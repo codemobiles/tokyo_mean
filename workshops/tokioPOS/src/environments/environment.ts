@@ -4,4 +4,5 @@ export const environment = {
   baseUrl: '',
   token: 'token',
   version: '1.1 BETA',
+  platform: 'DEV',
 };

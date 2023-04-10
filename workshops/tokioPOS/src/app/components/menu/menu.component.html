@@ -1,1 +1,49 @@
-<p>menu works!</p>
+<mat-nav-list>
+  <img [src]="rest.assets('images/angular_logo.jpg')" alt="" width="100%" />
+
+  <div style="height: 8px"></div>
+  <a
+    mat-list-item
+    routerLink="/stock"
+    (click)="onClose()"
+    routerLinkActive="active"
+  >
+    <mat-icon>dashboard</mat-icon>
+    <span class="nav-caption">Stock</span>
+  </a>
+
+  <mat-divider> </mat-divider>
+
+  <a
+    mat-list-item
+    routerLink="/shop"
+    (click)="onClose()"
+    routerLinkActive="active"
+  >
+    <mat-icon>shop</mat-icon>
+    <span class="nav-caption">Shop</span>
+  </a>
+  <mat-divider> </mat-divider>
+  <a
+    mat-list-item
+    routerLink="/report"
+    (click)="onClose()"
+    routerLinkActive="active"
+  >
+    <mat-icon>pie_chart</mat-icon>
+    <span class="nav-caption">Report</span>
+  </a>
+
+  <mat-divider> </mat-divider>
+
+  <a
+    mat-list-item
+    routerLink="/transaction"
+    (click)="onClose()"
+    routerLinkActive="active"
+  >
+    <mat-icon>history</mat-icon>
+    <span class="nav-caption">Transaction</span>
+  </a>
+  <mat-divider> </mat-divider>
+</mat-nav-list>

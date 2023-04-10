@@ -15,7 +15,12 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   constructor(public rest: RestService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let user: User = {
+      username: '',
+      password: '',
+    };
+  }
 
   ngAfterViewInit(): void {
     // this.onSubmit({ username: 'test1', password: '1234' });

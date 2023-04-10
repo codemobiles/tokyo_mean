@@ -10,7 +10,9 @@ import { RestService } from 'src/app/services/rest.service';
 export class LoginComponent implements OnInit, AfterViewInit {
   constructor(private rest: RestService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   ngAfterViewInit(): void {
     this.onSubmit({ username: 'test1', password: '1234' });

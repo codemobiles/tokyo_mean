@@ -1,15 +1,21 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-const fs = require("fs");
-const path = require("path");
-const jwt = require("jsonwebtoken");
-var publicKEY = fs.readFileSync(path.join(process.env.ROOT_PATH + "/public.key"), "utf8");
-var privateKEY = fs.readFileSync(path.join(process.env.ROOT_PATH + "/private.key"), "utf8");
+const fs = require('fs');
+const path = require('path');
+const jwt = require('jsonwebtoken');
+var publicKEY = fs.readFileSync(
+  path.join(process.env.ROOT_PATH + '/public.key'),
+  'utf8'
+);
+var privateKEY = fs.readFileSync(
+  path.join(process.env.ROOT_PATH + '/private.key'),
+  'utf8'
+);
 
-var i = "CodeMobiles Ltd"; // Issuer (Software organization who issues the token)
-var s = "chaiyasit.t@gmail.com"; // Subject (intended user of the token)
-var a = "http://codemobiles.com"; // Audience (Domain within which this token will live and function)
+var i = 'CodeMobiles Ltd'; // Issuer (Software organization who issues the token)
+var s = 'chaiyasit.t@gmail.com'; // Subject (intended user of the token)
+var a = 'http://codemobiles.com'; // Audience (Domain within which this token will live and function)
 
 export default {
   sign: (payload) => {
@@ -18,8 +24,8 @@ export default {
       issuer: i,
       subject: s,
       audience: a,
-      expiresIn: "30d", // 30 days validity
-      algorithm: "RS256",
+      expiresIn: '30d', // 30 days validity
+      algorithm: 'RS256',
     };
     return jwt.sign(payload, privateKEY, signOptions);
   },
@@ -27,28 +33,36 @@ export default {
     // next()
     // return;
 
-    const segments = req.path.split("/");
+    const segments = req.path.split('/');
     const endPoint = segments[segments.length - 1];
 
-    if (endPoint === "login" || endPoint === "register") {
+    if (endPoint === 'login' || endPoint === 'register') {
       return next();
     }
 
-    var token = req.headers.authorization ? req.headers.authorization.split(" ")[1] : null;
+    var token = req.headers.authorization
+      ? req.headers.authorization.split(' ')[1]
+      : null;
 
-    if (!token) return res.status(403).json({ result: "nok", message: "No token provided." });
+    if (!token)
+      return res
+        .status(403)
+        .json({ result: 'nok', message: 'No token provided.' });
 
     var verifyOptions = {
       issuer: i,
       subject: s,
       audience: a,
-      expiresIn: "12h",
-      algorithm: ["RS256"],
+      expiresIn: '12h',
+      algorithm: ['RS256'],
     };
 
     jwt.verify(token, publicKEY, verifyOptions, function (err, decoded) {
       // console.log(JSON.stringify(decoded));
-      if (err) return res.status(500).json({ result: "nok", message: "Failed to authenticate token." });
+      if (err)
+        return res
+          .status(500)
+          .json({ result: 'nok', message: 'Failed to authenticate token.' });
       // if everything good, save to request for use in other routes
       req.userId = decoded.id;
       req.userLevel = decoded.level;

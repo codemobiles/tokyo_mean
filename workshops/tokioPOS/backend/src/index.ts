@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 import { AppDataSource } from './data-source';
 import { Routes } from './routes';
 import * as cors from 'cors';
-import lek from './utils/my.interceptor';
+import jwt from './utils/jwt';
 
 AppDataSource.initialize()
   .then(async () => {
@@ -13,14 +13,11 @@ AppDataSource.initialize()
     app.use(express.json());
     app.use(cors());
 
-    const { interceptor1, interceptor2 } = lek;
-
     // register express routes from defined application routes
     Routes.forEach((route) => {
       (app as any)[route.method](
         '/api/v2' + route.route,
-        interceptor1,
-        interceptor2,
+        jwt.verify,
         (req: Request, res: Response, next: Function) => {
           const result = new (route.controller as any)()[route.action](
             req,

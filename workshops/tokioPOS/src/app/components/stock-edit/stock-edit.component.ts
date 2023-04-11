@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RestService } from 'src/app/services/rest.service';
 import { Location } from '@angular/common';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-stock-edit',
@@ -22,7 +23,7 @@ export class StockEditComponent implements OnInit {
 
   async ngOnInit() {
     const productId = this.route.snapshot.params['id'];
-    const data = await this.rest.getProductById(productId).toPromise();
+    const data = await lastValueFrom(this.rest.getProductById(productId));
     this.originalImage = data.image;
     this.initForm(data);
   }
@@ -48,11 +49,10 @@ export class StockEditComponent implements OnInit {
       formData.append('price', stock);
 
       if (this.imageFile != null) {
-        alert('send image');
         formData.append('image', this.imageFile);
       }
 
-      await this.rest.updateProduct(formData).toPromise();
+      await lastValueFrom(this.rest.updateProduct(formData));
       this.location.back();
     }
   }

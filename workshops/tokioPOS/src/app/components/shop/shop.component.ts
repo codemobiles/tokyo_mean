@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { RestService } from 'src/app/services/rest.service';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-shop',
@@ -19,7 +20,7 @@ export class ShopComponent implements OnInit {
   constructor(public rest: RestService) {}
 
   async ngOnInit() {
-    this.mProductArray = await this.rest.getProducts().toPromise();
+    this.mProductArray = await lastValueFrom(this.rest.getProducts());
   }
 
   isSelectedItem(item: any) {

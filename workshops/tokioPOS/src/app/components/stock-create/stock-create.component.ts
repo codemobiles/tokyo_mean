@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { lastValueFrom } from 'rxjs';
 import { RestService } from 'src/app/services/rest.service';
@@ -51,6 +52,7 @@ export class StockCreateComponent implements OnInit {
       name: new FormControl('ProductX', [Validators.required]),
       price: new FormControl(300, [Validators.required, Validators.min(10)]),
       stock: new FormControl(100, [Validators.required, Validators.min(10)]),
+      image: new FormControl(null, [Validators.required]),
     });
   }
 }

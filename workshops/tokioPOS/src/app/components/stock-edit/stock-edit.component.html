@@ -1,1 +1,105 @@
-<p>stock-edit works! {{ productId }}</p>
+<div class="d-flex justify-content-center mt-3">
+  <div class="col-md-10">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> แก้ไขสินค้า </mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="formProduct" (ngSubmit)="onSubmit()">
+        <mat-card-content>
+          <div class="form-container">
+            <!-- Id field -->
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="รหัส"
+                name="id"
+                formControlName="id"
+                readonly
+                style="color: gray"
+              />
+            </mat-form-field>
+
+            <!-- Name field -->
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="ชื่อ"
+                name="name"
+                formControlName="name"
+                required
+              />
+              <mat-error
+                *ngIf="
+                  formProduct?.get('name')?.invalid &&
+                  formProduct?.get('name')?.touched
+                "
+              >
+                *โปรดระบุ ชื่อสินค้า</mat-error
+              >
+            </mat-form-field>
+
+            <!-- Price field -->
+            <mat-form-field>
+              <input
+                type="number"
+                matInput
+                placeholder="ราคา"
+                name="price"
+                formControlName="price"
+                required
+              />
+            </mat-form-field>
+
+            <!-- Stock field -->
+            <mat-form-field>
+              <input
+                type="number"
+                matInput
+                placeholder="จำนวน"
+                name="price"
+                formControlName="stock"
+                required
+              />
+            </mat-form-field>
+
+            <!-- Preview image -->
+            <div class="d-flex justify-content-center">
+              <!-- for original preview image -->
+              <img
+                class="image-thumnail"
+                *ngIf="originalImage"
+                [src]="rest.getProductImage(originalImage)"
+              />
+              <!-- for new preview image -->
+              <img
+                class="image-thumnail"
+                *ngIf="originalImage == null"
+                [src]="imageURL"
+              />
+            </div>
+
+            <input
+              type="file"
+              formControlName="image"
+              placeholder="รูปสินค้า"
+              (change)="onChangeImage($event)"
+            />
+          </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button
+            mat-raised-button
+            color="default"
+            type="button"
+            (click)="onClickCancel()"
+          >
+            ยกเลิก
+          </button>
+          <button mat-raised-button color="primary" type="submit">
+            บันทึก
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
+</div>

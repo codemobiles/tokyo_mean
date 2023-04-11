@@ -1,4 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { RestService } from 'src/app/services/rest.service';
@@ -18,7 +19,7 @@ export class StockComponent implements AfterViewInit {
     'price',
   ];
 
-  constructor(public rest: RestService) {}
+  constructor(public rest: RestService, private router: Router) {}
 
   async ngAfterViewInit(): Promise<void> {
     this.dataSource = await lastValueFrom(this.rest.getProducts());
@@ -26,6 +27,7 @@ export class StockComponent implements AfterViewInit {
   }
 
   handleCreate() {
-    
+    //     path: 'stock/create',
+    this.router.navigate(['stock/create']);
   }
 }

@@ -1,4 +1,5 @@
 import { ProductController } from './controller/ProductController';
+import { TransactionController } from './controller/TransactionController';
 import { UserController } from './controller/UserController';
 
 const authRoutes = [

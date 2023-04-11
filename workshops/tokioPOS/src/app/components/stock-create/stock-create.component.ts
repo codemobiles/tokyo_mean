@@ -17,7 +17,17 @@ export class StockCreateComponent implements OnInit {
 
   onSubmit() {}
 
-  onChangeImage(event: any) {}
+  onChangeImage(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.imageURL = event.target.result; // for preview
+      };
+
+      reader.readAsDataURL(event.target.files[0]);
+      this.imageFile = event.target.files[0]; // for upload
+    }
+  }
 
   onClickCancel() {}
 

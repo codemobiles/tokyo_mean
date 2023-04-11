@@ -27,6 +27,7 @@ import { TransactionDetailComponent } from './components/transaction-detail/tran
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
 import { authInterceptor } from './services/jwt.interceptor';
+import { QtyPipe } from './pipes/qty.pipe';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { authInterceptor } from './services/jwt.interceptor';
     TransactionDetailComponent,
     ConfirmDialogComponent,
     SuccessDialogComponent,
+    QtyPipe,
   ],
   imports: [
     BrowserModule,

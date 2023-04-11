@@ -28,6 +28,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
 import { authInterceptor } from './services/jwt.interceptor';
 import { QtyPipe } from './pipes/qty.pipe';
+import { CustomPipe } from './pipes/custom.pipe';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { QtyPipe } from './pipes/qty.pipe';
     ConfirmDialogComponent,
     SuccessDialogComponent,
     QtyPipe,
+    CustomPipe,
   ],
   imports: [
     BrowserModule,

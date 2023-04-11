@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { RestService } from 'src/app/services/rest.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-stock',
@@ -24,6 +25,12 @@ export class StockComponent implements AfterViewInit {
   async ngAfterViewInit(): Promise<void> {
     this.dataSource = await lastValueFrom(this.rest.getProducts());
     // alert(JSON.stringify(this.dataArray));
+  }
+
+  getImageUrl(image: string) {
+    return `${
+      environment.node_static_url
+    }/images/${image}?version=${Math.random()}`;
   }
 
   handleCreate() {

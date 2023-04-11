@@ -36,6 +36,15 @@
                 formControlName="price"
                 required
               />
+
+              <mat-error
+                *ngIf="
+                  formProduct.get('price')?.invalid &&
+                  formProduct.get('price')?.touched
+                "
+              >
+                *ราคาไม่ถูกต้อง</mat-error
+              >
             </mat-form-field>
 
             <!-- Stock field -->

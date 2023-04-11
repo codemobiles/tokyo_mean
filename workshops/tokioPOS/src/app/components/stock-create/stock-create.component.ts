@@ -25,6 +25,7 @@ export class StockCreateComponent implements OnInit {
     this.formProduct = new FormGroup({
       name: new FormControl('ProductX', [Validators.required]),
       price: new FormControl(300, [Validators.required, Validators.min(10)]),
+      stock: new FormControl(100, [Validators.required, Validators.min(10)]),
     });
   }
 }

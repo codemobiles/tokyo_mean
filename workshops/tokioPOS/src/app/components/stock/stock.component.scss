@@ -1,3 +1,28 @@
-table {
+.example-card {
   width: 100%;
+  margin-top: 24px;
+}
+
+.mat-icon {
+  font-size: 50px;
+}
+
+.mat-header-cell {
+  font-size: 20px;
+}
+
+.mat-image-cell {
+  padding: 4px;
+}
+
+.edit-btn {
+  color: green !important;
+}
+
+.delete-btn {
+  color: red !important;
+}
+
+.add-btn {
+  color: white !important;
 }

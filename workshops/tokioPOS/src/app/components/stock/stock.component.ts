@@ -27,7 +27,6 @@ export class StockComponent implements AfterViewInit {
   }
 
   handleCreate() {
-    //     path: 'stock/create',
     this.router.navigate(['stock/create']);
   }
 }

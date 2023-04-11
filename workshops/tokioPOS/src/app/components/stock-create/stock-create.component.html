@@ -1,1 +1,88 @@
-<p>stock-create works!</p>
+<div class="d-flex justify-content-center mt-3">
+  <div class="col-md-10">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> สร้างสินค้า </mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="formProduct" (ngSubmit)="onSubmit()">
+        <mat-card-content>
+          <div class="form-container">
+            <!-- Name field -->
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="ชื่อ"
+                name="name"
+                formControlName="name"
+                required
+              />
+              <mat-error
+                *ngIf="
+                  formProduct.get('name')?.invalid &&
+                  formProduct.get('name')?.touched
+                "
+              >
+                *โปรดระบุ ชื่อสินค้า</mat-error
+              >
+            </mat-form-field>
+
+            <!-- Price field -->
+            <mat-form-field>
+              <input
+                type="number"
+                matInput
+                placeholder="ราคา"
+                name="price"
+                formControlName="price"
+                required
+              />
+            </mat-form-field>
+
+            <!-- Stock field -->
+            <mat-form-field>
+              <input
+                type="number"
+                matInput
+                placeholder="จำนวน"
+                name="price"
+                formControlName="stock"
+                required
+              />
+            </mat-form-field>
+
+            <div class="d-flex">
+              <!-- Preview image -->
+              <div
+                class="d-flex justify-content-center"
+                *ngIf="imageFile"
+                style="margin-right: 24px"
+              >
+                <img class="image-thumnail" [src]="imageURL" />
+              </div>
+
+              <!-- Image Input file browse field -->
+
+              <input
+                type="file"
+                formControlName="image"
+                placeholder="รูปสินค้า"
+                (change)="onChangeImage($event)"
+              />
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button
+            mat-raised-button
+            color="default"
+            type="button"
+            (click)="onClickCancel()"
+          >
+            ยกเลิก
+          </button>
+          <button mat-raised-button color="primary" type="submit">สร้าง</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
+</div>

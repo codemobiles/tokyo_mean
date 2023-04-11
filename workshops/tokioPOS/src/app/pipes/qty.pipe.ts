@@ -5,6 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class QtyPipe implements PipeTransform {
   transform(value: string, ...args: string[]): string {
-    return value + ' qty';
+    return value + (args[0] == 'en' ? ' qty' : ' ชิ้น');
   }
 }

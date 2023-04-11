@@ -49,7 +49,11 @@ export class StockComponent implements OnInit, AfterViewInit {
 
   async onClickDelete(row: any) {
     const dialogConfirm = this.dialog.open(ConfirmDialogComponent, {
-      data: 'Lek lek',
+      data: {
+        title: 'ลบสินค้า',
+        subtitle: 'คุณต้องการลบสินค้านี้ใช่หรือไม่?',
+        item: row,
+      },
     });
 
     // let result = await lastValueFrom(dialogConfirm.afterClosed());

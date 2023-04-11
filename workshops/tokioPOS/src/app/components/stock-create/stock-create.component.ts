@@ -9,4 +9,6 @@ export class StockCreateComponent {
   onSubmit() {}
 
   onChangeImage(event: any) {}
+
+  onClickCancel() {}
 }

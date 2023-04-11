@@ -1,6 +1,120 @@
-<div>
-  <p>payment works!</p>
-  <button mat-raised-button color="primary" (click)="handlePayment()">
-    Pay
-  </button>
-</div>
+<p>payment works!</p>
+
+<form style="width: 500px">
+  <!-- Change section -->
+  <div class="form-group" style="margin-top: 8px">
+    <label for="change">Change</label>
+    <input
+      type="text"
+      style="font-size: 30px; height: 50px; border-radius: 5px"
+      disabled
+      class="form-control"
+      id="change"
+      value="฿{{ changeMoney | number: '1.2-2' }}"
+    />
+  </div>
+
+  <!-- Given section -->
+  <div class="form-group" style="margin-top: 8px">
+    <label for="paid">Paid</label>
+    <span
+      style="font-size: 30px; height: 50px; border-radius: 5px"
+      class="currencyinput form-control"
+      >฿
+      <input
+        type="text"
+        #mGivenTextInput
+        style="font-size: 30px; height: 45px"
+        name="given"
+        id="paid"
+        (ngModelChange)="givenNumber = $event"
+        [ngModel]="givenNumber | custom: ' Baht'"
+      />
+    </span>
+  </div>
+
+  <!-- Buttons section -->
+  <div class="d-flex flex-column" style="width: 100%">
+    <div class="d-flex flex-row">
+      <button
+        mat-raised-button
+        color="primary"
+        class="payment_button"
+        (click)="onClickGiven(1000)"
+      >
+        ฿1,000
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="payment_button"
+        (click)="onClickGiven(500)"
+      >
+        ฿500
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="payment_button"
+        (click)="onClickGiven(100)"
+      >
+        ฿100
+      </button>
+    </div>
+
+    <div class="d-flex flex-row">
+      <button
+        mat-raised-button
+        color="primary"
+        class="payment_button"
+        (click)="onClickGiven(50)"
+      >
+        ฿50
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="payment_button"
+        (click)="onClickGiven(20)"
+      >
+        ฿20
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="payment_button"
+        (click)="onClickGiven(10)"
+      >
+        ฿10
+      </button>
+    </div>
+
+    <div class="d-flex flex-row">
+      <button
+        mat-raised-button
+        color="warn"
+        class="payment_button"
+        (click)="onClickReset()"
+      >
+        CLR
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="payment_button"
+        (click)="onClickExact()"
+      >
+        EXACT
+      </button>
+      <button
+        *ngIf="isPaidEnough"
+        mat-raised-button
+        color="accent"
+        class="payment_button"
+        (click)="onClickSubmit()"
+      >
+        SUBMIT
+      </button>
+    </div>
+  </div>
+</form>

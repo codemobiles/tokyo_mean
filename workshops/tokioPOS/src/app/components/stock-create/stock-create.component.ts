@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { lastValueFrom } from 'rxjs';
+import { RestService } from 'src/app/services/rest.service';
 
 @Component({
   selector: 'app-stock-create',
@@ -7,6 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./stock-create.component.scss'],
 })
 export class StockCreateComponent implements OnInit {
+  constructor(private rest: RestService, private location: Location) {}
+
   imageURL = null;
   imageFile = null;
   formProduct!: FormGroup;
@@ -23,8 +27,8 @@ export class StockCreateComponent implements OnInit {
       formData.append('stock', this.formProduct.value.stock);
       formData.append('image', this.imageFile);
 
-      // await this.rest.addProduct(formData).toPromise();
-      // this.location.back();
+      await lastValueFrom(this.rest.addProduct(formData));
+      this.location.back();
     }
   }
 

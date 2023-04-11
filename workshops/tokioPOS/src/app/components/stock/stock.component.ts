@@ -24,4 +24,8 @@ export class StockComponent implements AfterViewInit {
     this.dataSource = await lastValueFrom(this.rest.getProducts());
     // alert(JSON.stringify(this.dataArray));
   }
+
+  handleCreate() {
+    
+  }
 }

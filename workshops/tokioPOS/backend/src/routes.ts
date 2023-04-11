@@ -55,4 +55,31 @@ const productRoutes = [
   },
 ];
 
-export const Routes = [...authRoutes, ...productRoutes];
+const transactionRoutes = [
+  {
+    method: 'get',
+    route: '/transaction',
+    controller: TransactionController,
+    action: 'all',
+  },
+  {
+    method: 'get',
+    route: '/transaction/between/:startDate/:endDate',
+    controller: TransactionController,
+    action: 'between',
+  },
+  {
+    method: 'post',
+    route: '/transaction',
+    controller: TransactionController,
+    action: 'add',
+  },
+  {
+    method: 'get',
+    route: '/transaction/id/:transaction_id',
+    controller: TransactionController,
+    action: 'one',
+  },
+];
+
+export const Routes = [...authRoutes, ...productRoutes, ...transactionRoutes];

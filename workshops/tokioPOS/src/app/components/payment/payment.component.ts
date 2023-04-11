@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-payment',
@@ -8,8 +8,9 @@ import { Component, Input } from '@angular/core';
 export class PaymentComponent {
   @Input() productOrder: any;
   @Input() totalNumber: any;
+  @Output() onCompleted = new EventEmitter();
 
   handlePayment() {
-    
+    this.onCompleted.emit();
   }
 }

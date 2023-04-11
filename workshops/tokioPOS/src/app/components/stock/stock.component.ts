@@ -9,12 +9,13 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./stock.component.scss'],
 })
 export class StockComponent implements AfterViewInit {
-  dataArray: Product[] = [];
+  dataSource: Product[] = [];
+  displayedColumns: string[] = ['product_id', 'name', 'stock', 'price'];
 
   constructor(public rest: RestService) {}
 
   async ngAfterViewInit(): Promise<void> {
-    this.dataArray = await lastValueFrom(this.rest.getProducts());
+    this.dataSource = await lastValueFrom(this.rest.getProducts());
     // alert(JSON.stringify(this.dataArray));
   }
 }

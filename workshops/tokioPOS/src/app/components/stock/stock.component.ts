@@ -49,18 +49,14 @@ export class StockComponent implements OnInit, AfterViewInit {
 
   async onClickDelete(row: any) {
     const dialogConfirm = this.dialog.open(ConfirmDialogComponent, {
-      data: {
-        title: 'ลบสินค้า',
-        subtitle: 'คุณต้องการลบสินค้านี้ใช่หรือไม่?',
-        item: row,
-      },
+      data: 'Lek lek',
     });
 
-    let result = await lastValueFrom(dialogConfirm.afterClosed());
-    if (result) {
-      await lastValueFrom(this.rest.deleteProduct(row.product_id));
-      this.dataSource.data = await lastValueFrom(this.rest.getProducts());
-    }
+    // let result = await lastValueFrom(dialogConfirm.afterClosed());
+    // if (result) {
+    //   await lastValueFrom(this.rest.deleteProduct(row.product_id));
+    //   this.dataSource.data = await lastValueFrom(this.rest.getProducts());
+    // }
   }
 
   doFilter(event: any) {

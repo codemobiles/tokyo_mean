@@ -15,7 +15,18 @@ export class StockCreateComponent implements OnInit {
     this.initForm();
   }
 
-  onSubmit() {}
+  async onSubmit() {
+    if (this.formProduct != null && this.imageFile != null) {
+      const formData = new FormData();
+      formData.append('name', this.formProduct.value.name);
+      formData.append('price', this.formProduct.value.price);
+      formData.append('stock', this.formProduct.value.stock);
+      formData.append('image', this.imageFile);
+
+      // await this.rest.addProduct(formData).toPromise();
+      // this.location.back();
+    }
+  }
 
   onChangeImage(event: any) {
     if (event.target.files && event.target.files[0]) {

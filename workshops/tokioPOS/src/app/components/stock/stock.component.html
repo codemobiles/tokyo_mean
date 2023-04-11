@@ -11,13 +11,21 @@
   <!-- Image Column -->
   <ng-container matColumnDef="image">
     <th mat-header-cell *matHeaderCellDef>รูป</th>
-    <td mat-cell *matCellDef="let element">{{ element.image }}</td>
+    <td mat-cell *matCellDef="let element">
+      <img
+        [src]="'http://localhost:8082/images/' + element.image"
+        alt=""
+        class="w-[50px]"
+      />
+    </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>ชื่อ</th>
-    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    <td mat-cell *matCellDef="let element" class="underline">
+      {{ element.name }}
+    </td>
   </ng-container>
 
   <!-- Weight Column -->

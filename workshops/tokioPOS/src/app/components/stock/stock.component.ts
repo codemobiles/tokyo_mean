@@ -10,7 +10,13 @@ import { RestService } from 'src/app/services/rest.service';
 })
 export class StockComponent implements AfterViewInit {
   dataSource: Product[] = [];
-  displayedColumns: string[] = ['product_id', 'name', 'stock', 'price'];
+  displayedColumns: string[] = [
+    'product_id',
+    'image',
+    'name',
+    'stock',
+    'price',
+  ];
 
   constructor(public rest: RestService) {}
 

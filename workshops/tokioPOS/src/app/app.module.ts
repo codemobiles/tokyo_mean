@@ -54,6 +54,7 @@ import { QtyPipe } from './pipes/qty.pipe';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
   ],
   providers: [provideHttpClient(withInterceptors([authInterceptor]))],

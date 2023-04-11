@@ -56,11 +56,11 @@ export class StockComponent implements OnInit, AfterViewInit {
       },
     });
 
-    // let result = await lastValueFrom(dialogConfirm.afterClosed());
-    // if (result) {
-    //   await lastValueFrom(this.rest.deleteProduct(row.product_id));
-    //   this.dataSource.data = await lastValueFrom(this.rest.getProducts());
-    // }
+    let result = await lastValueFrom(dialogConfirm.afterClosed());
+    if (result) {
+      await lastValueFrom(this.rest.deleteProduct(row.product_id));
+      this.dataSource.data = await lastValueFrom(this.rest.getProducts());
+    }
   }
 
   doFilter(event: any) {

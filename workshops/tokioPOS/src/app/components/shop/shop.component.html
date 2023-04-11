@@ -1,1 +1,174 @@
-<p>shop works!</p>
+<div class="d-flex flex-column align-items-center justify-content-center">
+  <mat-card class="example-card d-flex flex-row">
+    <!-- Order section -->
+    <div class="d-flex flex-column" style="min-width: 400px; max-width: 400px">
+      <!-- order total and tax section -->
+      <div class="card">
+        <div style="padding-top: 16px">
+          <!-- Tax -->
+          <div class="row" style="padding-left: 12px; padding-right: 12px">
+            <div class="col-md-6 pull-left" style="color: #777777">
+              <b style="font-size: 20px; font-weight: 100">Tax 7%</b>
+            </div>
+            <div
+              class="col-md-6"
+              style="text-align: right; margin-bottom: 16px"
+            >
+              <span>
+                <b style="font-size: 18px; font-weight: 100"
+                  >฿{{ mTaxAmt | number : "1.2-2" }}
+                </b>
+              </span>
+            </div>
+          </div>
+
+          <!-- Grand-total -->
+          <div class="row" style="padding-left: 12px; padding-right: 12px">
+            <div class="col-md-6 pull-left" style="color: #777777">
+              <b style="font-size: 20px">Total</b>
+            </div>
+            <div
+              class="col-md-6"
+              style="text-align: right; margin-bottom: 16px"
+            >
+              <span>
+                <b style="font-size: 27px; color: red"
+                  >฿{{ mTotalPrice | number : "1.2-2" }}
+                </b>
+              </span>
+            </div>
+          </div>
+
+          <button
+            (click)="onClickBtnPayment()"
+            class="payment_btn btn btn-default"
+          >
+            <strong>Payment</strong>
+          </button>
+        </div>
+      </div>
+
+      <!-- Waiting order image-->
+      <div
+        class="card"
+        style="
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          align-items: center;
+        "
+        *ngIf="mOrderArray.length == 0"
+      >
+        <img
+          [src]="rest.assets('images/waiting_for_sale.png')"
+          style="height: 200px; width: 200px"
+        />
+      </div>
+
+      <!-- order table -->
+      <ul
+        class="card"
+        *ngIf="mOrderArray.length != 0"
+        style="
+          overflow: auto;
+          overflow-x: hidden;
+          cursor: pointer;
+          margin: 0px !important;
+          flex: 1;
+        "
+      >
+        <div style="max-height: 100px">
+          <div style="margin-top: 16px"></div>
+          <li *ngFor="let item of mOrderArray">
+            <table
+              style="
+                width: 100%;
+                margin-left: 8px;
+                padding-right: 2px;
+                margin-right: 0px;
+                border-right-style: solid;
+              "
+            >
+              <tr>
+                <td class="d-flex flex-row">
+                  <!-- image -->
+                  <img
+                    src="{{ node_static_url }}/images/{{ item.image }}"
+                    style="height: 80px; width: 80px; padding: 3px"
+                  />
+
+                  <!-- name -->
+                  <div style="flex: 1">{{ item.name }}</div>
+
+                  <!-- price -->
+                  <div style="width: 100px">
+                    ฿{{ item.price | number : "1.2-2" }}
+                  </div>
+
+                  <!-- remove button -->
+                  <mat-icon
+                    (click)="removeOrder(item)"
+                    style="font-size: 25px; margin-right: 16px"
+                  >
+                    delete</mat-icon
+                  >
+                </td>
+              </tr>
+            </table>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <!-- Product section -->
+    <div *ngIf="mIsPaymentShown == false" class="product-section">
+      <div class="row">
+        <div
+          *ngFor="let item of mProductArray"
+          class="col-3 product-item"
+          (click)="pushNewOrder(item)"
+        >
+          <mat-card style="height: 300px">
+            <mat-card-header>
+              <mat-card-title style="height: 80px; font-size: 17px">{{
+                item.name
+              }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <img
+                mat-card-image
+                src="{{ node_static_url }}/images/{{ item.image }}"
+                style="width: 160px"
+              />
+            </mat-card-content>
+            <div
+              [ngClass]="
+                isSelectedItem(item) == true
+                  ? 'nprice_tag_selected'
+                  : 'nprice_tag'
+              "
+            >
+              D{{ item.product_id }} / ฿{{ item.price | number }}/{{
+                item.qty
+              }}
+              pcs.
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment section -->
+    <mat-card
+      *ngIf="mIsPaymentShown == true"
+      style="height: 80vh"
+      class="d-flex flex-grow-1 justify-content-center align-items-center"
+    >
+      <app-payment
+        (onCompleted)="onPaymentCompleted()"
+        [productOrder]="jsonOrderArray"
+        [totalNumber]="mTotalPrice"
+      ></app-payment>
+    </mat-card>
+  </mat-card>
+</div>

@@ -1,1 +1,136 @@
-<p>transaction works!</p>
+<div class="d-flex flex-column align-items-center">
+  <mat-card class="example-card">
+    <div class="d-flex flex-row justify-content-between">
+      <mat-card-header>
+        <mat-card-title>Transaction History</mat-card-title>
+        <mat-card-subtitle>121 รายการ</mat-card-subtitle>
+      </mat-card-header>
+
+      <div class="d-flex">
+        <!-- Begin date -->
+        <mat-form-field>
+          <input
+            [ngModel]="startDate"
+            matInput
+            [matDatepicker]="pickerBegin"
+            placeholder="ตั้งแต่"
+            (dateChange)="onChangeBegin($event)"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="pickerBegin"
+          ></mat-datepicker-toggle>
+          <mat-datepicker
+            #pickerBegin
+            startView="month"
+            [startAt]="startDate"
+          ></mat-datepicker>
+        </mat-form-field>
+
+        <!-- Space -->
+        <div style="width: 16px"></div>
+
+        <!-- End date -->
+        <mat-form-field>
+          <input
+            [ngModel]="endDate"
+            matInput
+            [matDatepicker]="pickerEnd"
+            placeholder="ถึง"
+            (dateChange)="onChangeEnd($event)"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="pickerEnd"
+          ></mat-datepicker-toggle>
+          <mat-datepicker
+            #pickerEnd
+            startView="month"
+            [startAt]="endDate"
+          ></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-card-content class="d-flex flex-row">
+      <!-- transaction summary -->
+      <div style="flex: 1.8">
+        <table
+          mat-table
+          #table
+          [dataSource]="dataSource"
+          class="mat-elevation-z8 w-100"
+          matSort
+        >
+          <!-- Id -->
+          <ng-container matColumnDef="transaction_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>เลขที่</th>
+            <td mat-cell *matCellDef="let row">{{ row.transaction_id }}</td>
+          </ng-container>
+
+          <!-- Timestamp -->
+          <ng-container matColumnDef="timestamp">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>เวลา</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.timestamp | date: "short" }}
+            </td>
+          </ng-container>
+
+          <!-- StaffID -->
+          <ng-container matColumnDef="staff_id">
+            <th mat-header-cell *matHeaderCellDef>พนังงาน</th>
+            <td mat-cell *matCellDef="let row">{{ row.staff_id }}</td>
+          </ng-container>
+
+          <!-- Total -->
+          <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ยอดรวม</th>
+            <td mat-cell *matCellDef="let row">
+              ฿ {{ row.total | number: "1.2-2" }}
+            </td>
+          </ng-container>
+
+          <!-- Paid -->
+          <ng-container matColumnDef="paid">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ชำระ</th>
+            <td mat-cell *matCellDef="let row">
+              ฿ {{ row.paid | number: "1.2-2" }}
+            </td>
+          </ng-container>
+
+          <!-- Discount -->
+          <ng-container matColumnDef="discount">
+            <th mat-header-cell *matHeaderCellDef>ส่วนลด</th>
+            <td mat-cell *matCellDef="let row">
+              ฿ {{ row.discount | number: "1.2-2" }}
+            </td>
+          </ng-container>
+
+          <!-- Detail -->
+          <ng-container matColumnDef="order_list">
+            <th mat-header-cell *matHeaderCellDef>รายการ</th>
+            <td mat-cell *matCellDef="let row">
+              {{ getNumberOfSKU(row.order_list) }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            [ngClass]="{ highlight: selectedId == row.transaction_id }"
+            (click)="onClickRow(row.transaction_id)"
+          ></tr>
+        </table>
+        <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 15, 25, 100]">
+        </mat-paginator>
+      </div>
+
+      <!-- space -->
+      <div style="width: 16px"></div>
+
+      <!-- transaction detail -->
+      <app-transaction-detail #detail style="flex: 1" *ngIf="selectedId">
+      </app-transaction-detail>
+    </mat-card-content>
+  </mat-card>
+</div>

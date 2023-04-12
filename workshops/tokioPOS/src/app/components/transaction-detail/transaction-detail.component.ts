@@ -1,13 +1,23 @@
-import { Component } from '@angular/core';
+import { RestService } from 'src/app/services/rest.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-transaction-detail',
   templateUrl: './transaction-detail.component.html',
   styleUrls: ['./transaction-detail.component.scss'],
 })
-export class TransactionDetailComponent {
-  count = 0;
-  add() {
-    this.count++;
+export class TransactionDetailComponent implements OnInit {
+  displayedColumns = ['product_id', 'image', 'name', 'price', 'qty'];
+  dataSource = new MatTableDataSource<any>();
+  constructor(public rest: RestService) {}
+
+  ngOnInit() {}
+
+  async load(id: string) {
+    let result = await lastValueFrom(this.rest.getTransactionById(id)); // lastValueFrom
+    console.log(JSON.stringify(result));
+    this.dataSource.data = JSON.parse(result.order_list);
   }
 }

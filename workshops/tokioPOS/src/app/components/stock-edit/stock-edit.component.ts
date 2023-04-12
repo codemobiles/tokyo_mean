@@ -15,6 +15,7 @@ export class StockEditComponent implements OnInit {
   imageFile = null;
   formProduct!: FormGroup;
   originalImage = null;
+  productId!: number;
   constructor(
     public rest: RestService,
     private location: Location,
@@ -22,15 +23,15 @@ export class StockEditComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    const productId = this.route.snapshot.params['id'];
-    const data = await lastValueFrom(this.rest.getProductById(productId));
+    this.productId = this.route.snapshot.params['id'];
+    const data = await lastValueFrom(this.rest.getProductById(this.productId));
     this.originalImage = data.image;
     this.initForm(data);
   }
 
   initForm(data: any) {
     this.formProduct = new FormGroup({
-      id: new FormControl(data.product_id, [Validators.required]),
+      id: new FormControl(this.productId, [Validators.required]),
       name: new FormControl(data.name, [Validators.required]),
       price: new FormControl(data.price, [Validators.required]),
       stock: new FormControl(data.stock, [Validators.required]),

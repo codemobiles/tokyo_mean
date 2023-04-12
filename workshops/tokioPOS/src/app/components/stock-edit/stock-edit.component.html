@@ -4,7 +4,11 @@
       <mat-card-header>
         <mat-card-title> แก้ไขสินค้า </mat-card-title>
       </mat-card-header>
-      <form [formGroup]="formProduct" (ngSubmit)="onSubmit()">
+      <form
+        *ngIf="formProduct"
+        [formGroup]="formProduct"
+        (ngSubmit)="onSubmit()"
+      >
         <mat-card-content>
           <div class="form-container">
             <!-- Id field -->
@@ -14,6 +18,7 @@
                 placeholder="รหัส"
                 name="id"
                 formControlName="id"
+                readonly
               />
             </mat-form-field>
 

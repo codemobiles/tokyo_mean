@@ -40,7 +40,7 @@ Day1#
   - child -> parent  (@Output) = event binding
   - {{}} - interpolator
   - [] - Property : @Input
-  - () - event : @Output
+  - () - event : @
   - ngModel
 
 - what is module?
@@ -84,6 +84,7 @@ routing module <-> <router-outlet></router-outlet>
   - #loginForm="ngForm"
   - (submit)
   - button type submit or button
+  - ng g s services/<service-name>
   - DI (Dependency Injection)
   - Router, Location
   - constructor(private router:Router){}
@@ -95,8 +96,10 @@ routing module <-> <router-outlet></router-outlet>
   - group router
   - router.get|post ("/login", (req, res)=>{ })
   - post man
+  - rest client
   - post man collection import / export
   - mongo db
+  - mssql (node crud)
   - install mongodb dev tool seperation
   - mongod --dbpath ""
   - dump and restore
@@ -116,19 +119,20 @@ Day3#
 - Encode/Decode
 - Cors
 - Share static file at backend (server.js)
-- Routing
+- Backend Routing (backend/src/route.ts)
 - Stock API
   - find, findOne, findOneAndDelete, findOneAndUpdate
   - Formidable (Upload Image)
 - Login save jwt
 - HTTP Interceptor jwt.interceptor.ts
 - Asyn and Await
-- RXJS and Promise
-- Subject (like Thread)
+- RXJS (Observable) and Promise (lastValueFrom)
+- Subject (like Queue of Task or Obserable or Promise)
 - MongoDB
+- MongoDB Client in VSCode Extension
 - Install Robo3t
 - MongoDB Dev tool
-- mongo restore -d mypos ......
+- mongorestore -d mypos ......
 - ORM
 - compare RDBMS s NOSQLDB
 - table -> collection
@@ -163,12 +167,12 @@ Day5#
 - Transaction and Transaction Detail
 - Revise UI
 - Deployment
-  ng build --prod
-  ng build --prod --base-href /demo --deploy-url demo/ --index=src/prod/index.html
-
+  ng build --configuration production
+  ng build --configuration production --base-href /demo --deploy-url demo/ --index=src/prod/index.html
+- npx serve -s <output-dir> -p 83
 - nginx (stop and start) - frondend
 - configure port, location (fallback) nginx.conf
-- environement.ts and environment.prod.ts
+- environement.ts and environment.prod.ts (angular.json)
 - seperated index.html (dev and prod)  --index=src/prod/index.html
 - pm2 backend
   pm2 start,stop restart... (readme.txt)

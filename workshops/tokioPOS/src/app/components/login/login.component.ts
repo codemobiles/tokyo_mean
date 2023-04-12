@@ -27,10 +27,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   async onSubmit(value: User) {
-    let response = await this.rest.login(value).toPromise();
+    let response = await lastValueFrom(this.rest.login(value));
 
     if (response.result == 'ok') {
       this.error = null;
+      this.rest.currentUser = value.username;
       localStorage.setItem(environment.token, response.token);
       this.router.navigate(['stock']);
     } else {

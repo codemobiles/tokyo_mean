@@ -18,6 +18,7 @@ export class RestService {
   private productUrl = `${this.apiUrl}/product`;
   private transactionUrl = `${this.apiUrl}/transaction`;
   private reportTranUrl = `${this.transactionUrl}/report`;
+  public currentUser = 'Unknown';
 
   // test
   constructor(private http: HttpClient) {}

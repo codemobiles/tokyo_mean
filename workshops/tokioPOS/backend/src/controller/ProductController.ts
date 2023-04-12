@@ -61,6 +61,7 @@ export class ProductController {
   }
 
   async allLike(req: Request, res: Response, next: NextFunction) {
+    console.log(req.params.name);
     return this.productRepo.findBy({
       name: new RegExp('^.*' + req.params.name + '.*$', 'i'),
     });

@@ -27,9 +27,9 @@ export class RestService {
     return searchTerm.pipe(
       switchMap((value: string) => {
         if (value) {
-          return this.getProducts();
-        } else {
           return this.getProductByKeyword(value);
+        } else {
+          return this.getProducts();
         }
       })
     );

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
@@ -8,8 +8,17 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss'],
 })
-export class ReportComponent {
+export class ReportComponent implements OnInit, OnDestroy {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+  scheduleId?: any = null;
+
+  ngOnInit(): void {
+    this.scheduleId = setInterval(() => this.randomize(), 3 * 1000);
+  }
+
+  ngOnDestroy(): void {
+    this.scheduleId?.clear();
+  }
 
   public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
@@ -30,10 +39,10 @@ export class ReportComponent {
       },
     },
   };
-  public barChartType: ChartType = 'bar';
+  public barChartType: ChartType = 'line';
   public barChartPlugins = [DataLabelsPlugin];
 
-  public barChartData: ChartData<'bar'> = {
+  public barChartData: ChartData<'line'> = {
     labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
     datasets: [
       { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },

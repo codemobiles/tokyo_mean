@@ -29,6 +29,8 @@ import { SuccessDialogComponent } from './components/success-dialog/success-dial
 import { authInterceptor } from './services/jwt.interceptor';
 import { QtyPipe } from './pipes/qty.pipe';
 import { CustomPipe } from './pipes/custom.pipe';
+import { NgChartsModule } from 'ng2-charts';
+import { HelpComponent } from './components/help/help.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { CustomPipe } from './pipes/custom.pipe';
     SuccessDialogComponent,
     QtyPipe,
     CustomPipe,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { CustomPipe } from './pipes/custom.pipe';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgChartsModule,
   ],
   providers: [provideHttpClient(withInterceptors([authInterceptor]))],
   bootstrap: [AppComponent],

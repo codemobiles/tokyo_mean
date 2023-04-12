@@ -4,11 +4,13 @@ import { environment } from 'src/environments/environment';
 
 import { Product } from '../models/product.model';
 import { User } from '../models/user.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RestService {
+
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   private hostUrl = `http://localhost:8082/`; // don't use local in case of cross domain or ip address
   private apiUrl = `${this.hostUrl}api/v2`;
@@ -21,6 +23,11 @@ export class RestService {
   // test
   constructor(private http: HttpClient) {}
   timestamp = Date.now().toString();
+
+
+  searchProduct(searchTerm: Subject<string>) {
+    
+  }
 
   login(value: User) {
     return this.http.post<any>(this.loginUrl, value, { headers: this.headers });

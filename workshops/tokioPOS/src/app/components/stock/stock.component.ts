@@ -33,6 +33,8 @@ export class StockComponent implements OnInit, AfterViewInit {
 
   async ngOnInit() {
     this.dataSource.data = await lastValueFrom(await this.rest.getProducts());
+
+    this.rest.searchProduct(this.searchTerm);
   }
 
   ngAfterViewInit() {
@@ -63,16 +65,15 @@ export class StockComponent implements OnInit, AfterViewInit {
     }
   }
 
-  doFilter(event: any) {
+  async doFilter(event: any) {
     console.log(event.target.value);
     const filterValue = event.target.value;
 
     // do local
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    // this.dataSource.filter = filterValue.trim().toLowerCase();
 
     // do remote
-    // this.dataSource.data = await this.rest.getProductByKeyword(filterValuefilterValue).toPromise()
-    // this.searchTerm.next(event.target.value);
+    this.searchTerm.next(event.target.value);
   }
 
   clearSearch() {

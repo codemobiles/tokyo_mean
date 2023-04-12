@@ -67,8 +67,8 @@ export class TransactionComponent implements OnInit, AfterViewInit {
 
   onClickRow(id: string) {
     this.selectedId = id;
-    setTimeout(() => {
-      this.detailComponent.load(this.selectedId);
-    }, 100);
+    // setTimeout(() => {
+    //   this.detailComponent.load(this.selectedId);
+    // }, 100);
   }
 }

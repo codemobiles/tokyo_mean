@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { cloneProduct, Products } from '../entity/Products';
 import { AppDataSource } from '../data-source';
 import * as formidable from 'formidable';
+const log = require('simple-node-logger').createSimpleLogger('project.log');
 
 import {
   deleteFile,
@@ -61,7 +62,7 @@ export class ProductController {
   }
 
   async allLike(req: Request, res: Response, next: NextFunction) {
-    console.log(req.params.name);
+    log.info(req.params.name);
     return this.productRepo.findBy({
       name: new RegExp('^.*' + req.params.name + '.*$', 'i'),
     });

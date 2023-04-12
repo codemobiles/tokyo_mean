@@ -5,6 +5,7 @@ import { AppDataSource } from './data-source';
 import { Routes } from './routes';
 import * as cors from 'cors';
 import jwt from './utils/jwt';
+const log = require('simple-node-logger').createSimpleLogger('project.log');
 
 AppDataSource.initialize()
   .then(async () => {
@@ -14,6 +15,8 @@ AppDataSource.initialize()
     app.use(cors());
     console.log(process.env.ROOT_PATH);
     app.use(express.static(process.env.ROOT_PATH + '/uploaded'));
+
+    log.debug('Startup');
 
     // register express routes from defined application routes
     Routes.forEach((route) => {

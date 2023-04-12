@@ -24,6 +24,7 @@
     "mongodb": "^3.0.8",
     "onesignal-node": "^3.4.0",
     "reflect-metadata": "^0.1.13",
+    "simple-node-logger": "^21.8.12",
     "typeorm": "0.3.12"
   },
   "scripts": {

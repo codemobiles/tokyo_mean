@@ -24,7 +24,7 @@ export class RestService {
   timestamp = Date.now().toString();
 
   searchProduct(searchTerm: Subject<string>) {
-    searchTerm.pipe(
+    return searchTerm.pipe(
       switchMap((value: string) => {
         if (value) {
           return this.getProducts();

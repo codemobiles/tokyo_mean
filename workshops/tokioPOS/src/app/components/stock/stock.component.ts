@@ -34,7 +34,9 @@ export class StockComponent implements OnInit, AfterViewInit {
   async ngOnInit() {
     this.dataSource.data = await lastValueFrom(await this.rest.getProducts());
 
-    this.rest.searchProduct(this.searchTerm);
+    this.rest.searchProduct(this.searchTerm).subscribe((data) => {
+      this.dataSource.data = data;
+    });
   }
 
   ngAfterViewInit() {

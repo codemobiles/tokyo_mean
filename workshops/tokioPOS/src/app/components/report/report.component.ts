@@ -17,7 +17,7 @@ export class ReportComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.scheduleId?.clear();
+    clearInterval(this.scheduleId);
   }
 
   public barChartOptions: ChartConfiguration['options'] = {

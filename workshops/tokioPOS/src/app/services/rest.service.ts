@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 
 import { Product } from '../models/product.model';
 import { User } from '../models/user.model';
-import { Subject, switchMap } from 'rxjs';
+import { Subject, debounceTime, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +25,7 @@ export class RestService {
 
   searchProduct(searchTerm: Subject<string>) {
     return searchTerm.pipe(
+      debounceTime(4000),
       switchMap((value: string) => {
         if (value) {
           return this.getProductByKeyword(value);
